@@ -157,12 +157,13 @@ form1.Memo1.Lines.Add('Auth success');
 ClearServers();
 serv:=0;
 form1.Button4.Enabled:=true;
+form1.Button5.Enabled:=true;
 in_serverlist:=false;
 ZLO_GetVersion(1);
 ZLO_GetServerList();
 end;
-1:begin form1.Memo1.Lines.Add('Auth error');form1.button1.Enabled:=true;form1.Button2.Enabled:=false;end;
-2:begin form1.Memo1.Lines.Add('Old Launcher.dll');form1.Button2.Enabled:=false;form1.UpdateTimer.Enabled:=true;end;
+1:begin form1.Memo1.Lines.Add('Auth error');form1.button1.Enabled:=true;form1.Button2.Enabled:=false;form1.Button5.Enabled:=false;end;
+2:begin form1.Memo1.Lines.Add('Old Launcher.dll');form1.Button2.Enabled:=false;form1.Button5.Enabled:=false;form1.UpdateTimer.Enabled:=true;end;
 3:begin
 form1.Memo1.Lines.Add('Server select ok');
 mutex.Acquire;
@@ -181,9 +182,9 @@ end;
 6:begin form1.Memo1.Lines.Add('Server select not ready');form1.Button2.Enabled:=false;end;
 23:begin in_serverlist:=true;end;
 24:begin in_serverlist:=false;mutex.Acquire;ReDraw;mutex.Release;end;
-27:begin form1.Memo1.Lines.Add('Disconnected from master');form1.button1.Enabled:=true;form1.Button2.Enabled:=false;ClearServers();end;
-28:begin form1.Memo1.Lines.Add('Master timeout and disconnected');form1.button1.Enabled:=true;form1.Button2.Enabled:=false;ClearServers();end;
-666:begin form1.Memo1.Lines.Add('You are banned');form1.button1.Visible:=false;form1.Button2.Visible:=false;ClearServers();end;
+27:begin form1.Memo1.Lines.Add('Disconnected from master');form1.button1.Enabled:=true;form1.Button2.Enabled:=false;form1.Button5.Enabled:=false;ClearServers();end;
+28:begin form1.Memo1.Lines.Add('Master timeout and disconnected');form1.button1.Enabled:=true;form1.Button2.Enabled:=false;form1.Button5.Enabled:=false;ClearServers();end;
+666:begin form1.Memo1.Lines.Add('You are banned');form1.button1.Visible:=false;form1.Button2.Visible:=false;form1.Button5.Visible:=false;ClearServers();end;
 else
 form1.Memo1.Lines.Add('Event: ' + inttostr(event));
 end

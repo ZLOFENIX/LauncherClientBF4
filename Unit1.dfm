@@ -164,6 +164,7 @@ object Form1: TForm1
     Width = 34
     Height = 25
     Caption = 'Single'
+    Enabled = False
     TabOrder = 8
     OnClick = Button5Click
   end
